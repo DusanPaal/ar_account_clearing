@@ -1,0 +1,29 @@
+"####":                               # 4- digit company code
+  country:                            # name of the country
+  active: true                        # indicates whether country should be processed by account clearing
+  base_threshold: 5.00                # customer line item diffs lower than this threshold value (0.00% tax rate) will be written off
+  tax_thresholds: {}                  # calculated thresholds used for writing off item diffs with tax rates other than 0.00%
+  category_taxes: {}                  # category-specific tax code used for writing off line items diffs
+  skipped_taxes: []                   # any items posted with tax codes from the list will be excluded from account clearing
+  currency_taxes: {}                  # currency-specific tax code used for writing off line items diffs
+  diff_universal_tax_code: NA         # country-specific tax code used for writing off line items diffs (if specified, overrides any 'unused_tax_code' settings)
+  unused_tax_code: "BO"               # universal tax code, used for writing off diffs from line items that have no tax code
+  local_diff_name: "Small difference" # country-specific text used to indicate the differential nature of the write-off posting (e. g. 'Rest of' D 10210000, 'Difference' D 10210000, etc ...)
+  case_id_rx: "4000\\d{5}"            # regex pattern used for matching of case IDs in items text
+  entities:                           # list of entities that exist within a country
+    NORWAY:                           # entity name and its clearing parameters
+      type: company_code              # entity type (company_code, worklist, etc ...)
+      active: true                    # indicates whether an entity that exists within a country should be processed by account clearing
+      skipped_taxes: []               # any items posted with tax codes from the list will be excluded from account clearing
+      head_office_taxes: {}           # specific tax codes used for particular head offices
+      valid_taxes: ["", "AO", "BO"]   # list of valid tax codes used for customer line items
+      gl_accounts:                    # GL accounts used for posting of item diffs that meet the writing off criteria
+        write_off_common:             # GL account types
+          cost_center:                # cost center values used if the default value is missing in the F-30 mask or based on country-specific criteria (trade, retail ...)
+            trade: "590060"           # cost center code for trade customers
+            retail: "590060"          # cost center code for retail customers
+          number: 66791020            # GL account number
+      accountants:                    # list of responsible AR accountants
+        - name:                       # useer first name
+          surname:                    # user second name
+          mail:                       # user email address

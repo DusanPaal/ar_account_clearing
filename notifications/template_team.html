@@ -1,0 +1,48 @@
+﻿<html>
+
+<head>
+</head>
+
+<body style="font-family: Arial">
+
+	<p style="font-size: 16px; color: purple">Hi Team,<br><br>Account clearing completed, reports available in:
+		$ReportPath$<br><br>
+		Kind Regards,<br><br>LBS automations team
+	</p>
+
+	<div style="display: inline-block; margin-top: 38px">
+
+		<div style="width: 100%; text-align: center">
+			<p style="font-weight: bold"><span style="font-size: 18px">Summary of items per group</span><br>(*excluding
+				invoices)</p>
+		</div>
+
+		<table style="width: auto; vertical-align: middle; border-collapse: collapse; text-align: center">
+			<tbody>
+
+				<tr style="font-weight: bold; background-color: orange; border: purple 2px solid; padding: 5px">
+					<th style="border: purple 2px solid; padding: 5px">Group</th>
+					<th style="border: purple 2px solid; padding: 5px">Company Code</th>
+					<th style="border: purple 2px solid; padding: 5px">Total Items Left</th>
+					<th style="border: purple 2px solid; padding: 5px">Due Items With Case ID</th>
+					<th style="border: purple 2px solid; padding: 5px">*Due Items Without Case ID</th>
+					<th style="border: purple 2px solid; padding: 5px">Skipped Items</th>
+					<th style="border: purple 2px solid; padding: 5px">Cleared Items</th>
+					<th style="border: purple 2px solid; padding: 5px">Closed Cases</th>
+					<th style="border: purple 2px solid; padding: 5px">Closed Notifications</th>
+					<th style="border: purple 2px solid; padding: 5px">Warnings</th>
+					<th style="border: purple 2px solid; padding: 5px">Errors</th>
+				</tr>
+
+				$TblRows$
+
+			</tbody>
+		</table>
+
+	</div>
+
+	<p style="font-size: 16px; color: purple"></p>
+
+</body>
+
+<html>

@@ -1,0 +1,67 @@
+sap:
+  gui_path:     # path to the local SAP GUI executable
+  fbl5n_layout: # name of the FBL5N layout used for data export
+  dms_layout:   # name of the UDM_DISPUTE layout used for data export
+  f30_layout:   # name of the F-30 layout used for data clearing
+  system:       # SAP system code (e.g. P25, P26, etc ...)
+
+clearing:
+  rules_path: $appdir$\rules.yaml
+  holidays:
+    - 9999-01-01
+    - 9999-01-06
+    - 9999-04-15
+    - 9999-04-18
+    - 9999-05-01
+    - 9999-05-26
+    - 9999-06-06
+    - 9999-06-16
+    - 9999-08-15
+    - 9999-10-03
+    - 9999-11-01
+    - 9999-12-25
+    - 9999-12-26
+
+recovery:
+  recovery_name: recovery.json
+
+data:
+  customer_data_name: customers_$comp_code$.xlsx
+  testing_dir: $appdir$\testing
+  data_dir: $appdir$\data
+  dump_dir: $appdir$\dump
+  temp_dir: $appdir$\temp
+  fbl5n_export_dir: $appdir$\temp\exports\fbl5n
+  fbl5n_data_export_name: fbl5n_$entity$_exp.txt
+  fbl5n_data_binary_name: fbl5n_$entity$_bin.pkl
+  dms_export_dir: $appdir$\temp\exports\dms
+  dms_data_export_name: dms_$entity$_exp.txt
+  dms_data_binary_name: dms_$entity$_bin.pkl
+  clearing_input_name: f30_input_$entity$.json
+  clearing_output_name: f30_output_$entity$.json
+  matched_data_name: matched_$entity$_bin.pkl
+  analyzed_data_name: analyzed_$entity$_bin.pkl
+  consolidated_data_name: consolidated_$entity$_bin.pkl
+  dms_closing_output_name: dms_closing_output_$entity$.json
+  qm_closing_output_name: qm_closing_output_$entity$.json
+
+reports:
+  local_dir: $appdir$\reports
+  net_dir: # path to the network directory to upload reports
+  net_subdir_format: "%Y_%m_%d"
+  name: AR_AccClearing_Report_$entity$_$comp_code$.xlsx
+
+mails:
+  requests:
+    account:  # name of the account
+    mailbox:  # name of the mailbox
+    server:   # name of the host server
+  notifications:
+    send: true
+    sender:   # mail address of the sender
+    subject:  # notification subject
+    team_template_path: $appdir$\notifications\template_team.html
+    user_template_path: $appdir$\notifications\template_user.html
+    html_email_path: $appdir$\temp\notification\notification.html
+    host:     # host server of the sender account
+    port:     # port number of the host server

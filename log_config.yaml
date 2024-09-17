@@ -1,0 +1,37 @@
+version: 1
+disable_existing_loggers: True
+
+formatters:
+  report:
+    format: "[%(asctime)s]---%(levelname)s---||%(module)s.%(funcName)s.ln:%(lineno)s||%(message)s"
+    datefmt: '%H:%M:%S'
+  simple:
+    format: "%(asctime)s %(name)s: %(message)s"
+  extended:
+    format: "[%(asctime)s] %(levelname)s: %(message)s"
+    datefmt: '%H:%M:%S'
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    formatter: report
+  filehandler:
+    class : logging.FileHandler
+    formatter: report
+    filename: log.log
+  m_filehandler:
+    class: logging.handlers.RotatingFileHandler
+    formatter: extended
+    filename: log.log
+    maxBytes: 1048576
+    backupCount: 5
+
+loggers:
+  master:
+    level: 10
+    handlers: [console,m_filehandler]
+    propogate: False
+  main:
+    level: 10
+    handlers: [console,filehandler]
+    propogate: False
